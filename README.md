@@ -1,6 +1,16 @@
+# CLIP-Input-to-Emoji
+
+[<img src="https://colab.research.google.com/assets/colab-badge.svg" align="center">](https://colab.research.google.com/drive/1TYrfqS0IX0dVLAtnBFBf0BPHYy1KsV0h?usp=sharing)
+
+Uses CLIP to convert user-input text string or photo to a single emoji.
+
+Added caption-only image generator using code from here:
+https://github.com/samgermain/python-meme
+
+After finding the original repository and notebooks have been deleted, I found a fork and forked it.  Will try to recover the "classify an image" and "search within an image" notebooks, maybe rework my version so it can skip the image generation step.
+
+Forked from:
 # CLIP-Image-Classification
-
-
 
 ### Use
 
