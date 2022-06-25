@@ -1,102 +1,10 @@
-# CLIP-Input-to-Emoji
+# Thin Chrome Window Bookmarklet
 
-[<img src="https://colab.research.google.com/assets/colab-badge.svg" align="center">](https://colab.research.google.com/drive/1TYrfqS0IX0dVLAtnBFBf0BPHYy1KsV0h?usp=sharing)
+Adapted from the HTML form [here](https://brianshim.com/webtricks/chrome-browser-window-that-you-can-make-narrow/)
 
-Uses CLIP to convert user-input text string or photo to a single emoji.
-
-Added caption-only image generator using code from here:
-https://github.com/samgermain/python-meme
-
-After finding the original kingchloexx CLIP-Image-Classification repository and notebooks have been deleted, I found a fork and created this repository to fix my personal copy of the original kingchloexx Colab.  Will try to recover the "classify an image" and "search within an image" notebooks, maybe rework my version so it can skip the image generation step, and make this a proper fork.
-
-Forked from:
-# CLIP-Image-Classification
-
-### Use
-
-```python
-!git clone https://github.com/kingchloexx/CLIP-Image-Classification # if not in a notebook, run in console (w/o the "!")
-import os
-os.chdir("Image-Classification")
-
-from classify import load, classify, encode
-
-filename = "../input.jpg"
-
-load_categories = "imagenet"
-
-print("loading categories")
-load(load_categories)
-
-print("classifying")
-print(classify(filename))
+Copy-and-paste code:
+```
+javascript:void%20function(){void%20open(%22window.location.href%22,%22targetname%22,%22height=800,width=337,resizable=1,scrollbars=1,status=0,toolbar=1,location=1,menubar=0%22)}();
 ```
 
-
-
-#### `load`
-
-```python
-load("imagenet") #imagenet categories
-load("pokemon") #loads a list of 721 pokemon names as categories
-load("dog vs cat") #dog and cat as categories
-load("emojis") #emojis :)
-load(["banana", "elephant", "monkey"]) #any custom words in a list will do as well
-```
-
-#### `classify`
-```python
-classify(filename) #returns the highest scoring class
-classify(filename, return_raw=True) #returns the scores for all the classes (cosine_similarity)
-```
-
-#### `encode`
-
-this will return CLIP's raw encoding of an image or text if you need it.
-
-```python
-encode("input.jpg") #encode based on filename, it'll be detected if it ends w/ png, jpg, or jpeg
-encode("an image of a flower") #encode based on text
-```
-
-
-
-### Examples
-
-Classify an image: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/kingchloexx/CLIP-Image-Classification/blob/main/Multi_Domain_Pretrained_Classifier_with_CLIP.ipynb)
-
-Search within an image: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/kingchloexx/CLIP-Image-Classification/blob/main/Clip_Search.ipynb)
-
-### Dependencies
-
-I made it as simple as I could lmao, first you've gotta install the dependencies which can be done with this block of text if you're using Google Colab:
-
-```python
-import subprocess
-
-CUDA_version = [s for s in subprocess.check_output(["nvcc", "--version"]).decode("UTF-8").split(", ") if s.startswith("release")][0].split(" ")[-1]
-print("CUDA version:", CUDA_version)
-
-if CUDA_version == "10.0":
-    torch_version_suffix = "+cu100"
-elif CUDA_version == "10.1":
-    torch_version_suffix = "+cu101"
-elif CUDA_version == "10.2":
-    torch_version_suffix = ""
-else:
-    torch_version_suffix = "+cu110"
-!git clone https://github.com/kingchloexx/CLIP-Image-Classification
-! pip install torch==1.7.1{torch_version_suffix} torchvision==0.8.2{torch_version_suffix} -f https://download.pytorch.org/whl/torch_stable.html ftfy regex
-!pip install ftfy
-
-```
-
-If you're using a conda environment (outside of google colab), make sure you have an nvidea graphics card, once you've `conda activate`ed your environment, use `conda install cudatoolkit` and at the time of writing this, the command for installing the correct torch version would be
-
-```
-pip install torch==1.7.1 torchvision==0.8.2 -f https://download.pytorch.org/whl/torch_stable.html ftfy regex
-```
-
-if you try the script and it says there are dependencies missing, usually a `pip install [dependency name]` will fix it
-
-👍 - [Chloe](https://github.com/kingchloexx)
+Or drag [this link](javascript:void%20function(){void%20open(%22window.location.href%22,%22targetname%22,%22height=800,width=337,resizable=1,scrollbars=1,status=0,toolbar=1,location=1,menubar=0%22)}();) to the bookmarks toolbar.
